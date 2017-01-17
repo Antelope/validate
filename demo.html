@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="gb2312">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,minimal-ui">
+		<style>
+			input{display: block;margin:10px 0;}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="phone" value="" placeholder="输入手机号"/>
+		<input type="text" id="idcard" value="" placeholder="输入身份证号"/>
+		<input type="text" id="email" value="" placeholder="输入邮箱"/>
+		<input type="button" id="submit" value="提交"  />
+		<script src="validate.js"></script>
+		<script>
+			var submit = document.querySelector("#submit"),
+				phone = document.querySelector("#phone"),
+				idcard = document.querySelector("#idcard"),
+				email = document.querySelector("#email")
+			submit.addEventListener("click",function(e){
+				var checkmsg = Validate({
+					phone:phone.value,
+					cardnum:idcard.value,
+					email:email.value
+				});
+				if(checkmsg!== true){
+					alert(checkmsg);
+				}else{
+					alert('通过校验')
+				}
+			});
+		</script>
+	</body>
+</html>
